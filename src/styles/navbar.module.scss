@@ -1,0 +1,20 @@
+.navbar__primary {
+  width: 100%;
+  display: flex;
+
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+
+  padding: 25px;
+  gap: 50px;
+
+  & > div {
+    border-radius: 5px;
+    padding: 8px;
+    border: 1px solid red;
+  }
+  & > .item3 {
+    flex-grow: 1;
+  }
+}
