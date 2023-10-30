@@ -1,12 +1,17 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import styles from "../styles/footer.module.scss";
+/* import Carousel from "react-bootstrap/Carousel"; */
+import Carousel from "../components/carousel";
+/* import "../components/carousel.css"; */
+import Filter from "../components/filter";
 
 const Home = () => {
   return (
     <div>
       <Navbar />
+      <Carousel />
+      <Filter />
       <Footer />
     </div>
   );

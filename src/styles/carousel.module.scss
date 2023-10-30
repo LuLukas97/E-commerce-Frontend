@@ -1,8 +1,14 @@
+.wrapper {
+  max-width: 60%;
+  margin: 0 auto;
+  height: 30rem;
+  border: 1px solid red;
+  margin-bottom: 15rem;
+}
 .carousel .carousel-indicators button {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: black;
 }
 
 /* Right */
@@ -14,4 +20,19 @@
 .carousel .carousel-control-prev-icon {
   background-image: url("../../public/arrow-right-solid.svg");
   rotate: 180deg;
+}
+.img {
+  max-height: 30rem;
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.h3 {
+  border: 1px solid red;
+  color: black;
+  font-size: 28px;
+  min-width: 15%;
+  max-width: 35%;
 }

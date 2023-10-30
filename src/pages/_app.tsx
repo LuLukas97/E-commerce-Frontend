@@ -3,6 +3,8 @@ import type { AppProps } from "next/app";
 import { wrapper } from "../redux/store/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { useStore } from "react-redux";
+import "../styles/carousel.css";
+
 function MyApp({ Component, pageProps }: AppProps) {
   const store: any = useStore();
   return (

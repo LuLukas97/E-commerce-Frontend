@@ -56,6 +56,9 @@ const Home: NextPage = () => {
           placeholder="Search for something.."
         ></input>
       </div>
+      <p className={styles.freeShipping}>
+        * Free shipping in Europe with orders above 599,00kr
+      </p>
       <div className={styles.navbar__menu}>
         <span> Woman </span>
         <span> Men </span>
