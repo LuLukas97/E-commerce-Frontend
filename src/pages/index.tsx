@@ -1,38 +1,28 @@
 import React from "react";
-import styles from "../styles/navbar.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBagShopping,
-  faUser,
-  faLocationDot,
-  faCircleInfo,
-} from "@fortawesome/free-solid-svg-icons";
-import Carousel from "../components/carousel";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "../components/navbar";
 
-export default function Index() {
+const Home = () => {
   return (
     <div>
-      <div className={styles.navbar__primary}>
-        <div>
-          {" "}
-          <FontAwesomeIcon icon={faLocationDot} />
-          Find closest store
-        </div>
-        <div>
-          <FontAwesomeIcon icon={faCircleInfo} />
-          Customer Support
-        </div>
-        <div className={styles.item3}></div>
-        <div>
-          <FontAwesomeIcon icon={faUser} />
-          Login
-        </div>
-        <div>
-          <FontAwesomeIcon icon={faBagShopping} />
-          Shopping cart (0)
-        </div>
-      </div>
+      <Navbar />
     </div>
   );
-}
+};
+
+/* export const getServerSideProps = wrapper.getServerSideProps(
+  (store) =>
+    async ({ params }) => {
+      // we can set the initial state from here
+      await store.dispatch(setAuthState(false));
+
+      console.log("State on server", store.getState());
+
+      return {
+        props: {
+          authState: false,
+        },
+      };
+    }
+);
+ */
+export default Home;
