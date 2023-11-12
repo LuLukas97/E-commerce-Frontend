@@ -7,12 +7,12 @@ export default function footer() {
       <div className={styles.wrapper}>
         <h1 className={styles.wrapper__title}> FitFly</h1>
         <div className={styles.footer}>
-          <span> Woman </span>
-          <span> Men </span>
-          <span> Sport </span>
-          <span> Shoes </span>
+          <span> Electronics </span>
+          <span> Computers </span>
+          <span> Audio </span>
+          <span> Monitors </span>
           <span> Accessories </span>
-          <span> Discount </span>
+          <span> Camera & Photo </span>
         </div>
         <div className={styles.menu}>
           <a href="https://www.linkedin.com/in/lukas-lundblad/">

@@ -56,6 +56,7 @@ function UncontrolledExample() {
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
           </Carousel.Caption>
         </Carousel.Item>
+
         <Carousel.Item interval={450000000}>
           <img
             className={styles.img}
@@ -68,6 +69,7 @@ function UncontrolledExample() {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
           </Carousel.Caption>
         </Carousel.Item>
+
         <Carousel.Item interval={28000500}>
           <img
             className={styles.img}

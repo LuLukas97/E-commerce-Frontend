@@ -5,12 +5,18 @@ import Footer from "../components/footer";
 import Carousel from "../components/carousel";
 /* import "../components/carousel.css"; */
 import Filter from "../components/filter";
+import Carousell from "../components/newCarousel";
 
+
+import "bootstrap/dist/css/bootstrap.css";
 const Home = () => {
+
+  
   return (
     <div>
       <Navbar />
-      <Carousel />
+      {/* <Carousel /> */}
+      <Carousell />
       <Filter />
       <Footer />
     </div>

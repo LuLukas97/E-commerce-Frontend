@@ -126,3 +126,8 @@ body {
   border: 1px solid red;
 }
  */
+
+.react-multi-carousel-list {
+  margin-top: -20px;
+  min-height: 20rem;
+}

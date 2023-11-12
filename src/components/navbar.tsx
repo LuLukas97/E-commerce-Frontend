@@ -60,12 +60,12 @@ const Home: NextPage = () => {
         * Free shipping in Europe with orders above 599,00kr
       </p>
       <div className={styles.navbar__menu}>
-        <span> Woman </span>
-        <span> Men </span>
-        <span> Sport </span>
-        <span> Shoes </span>
+        <span> Electronics </span>
+        <span> Computers </span>
+        <span> Audio </span>
+        <span> Monitors </span>
         <span> Accessories </span>
-        <span> Discount </span>
+        <span> Camera & Photo </span>
       </div>
 
       {/*       <>
@@ -74,7 +74,7 @@ const Home: NextPage = () => {
           Add
         </button>
       </> */}
-      <div>{authState ? "Logged in" : "Not Logged In"}</div>
+      {/*       <div>{authState ? "Logged in" : "Not Logged In"}</div>
       <button
         onClick={() =>
           authState
@@ -83,7 +83,7 @@ const Home: NextPage = () => {
         }
       >
         {authState ? "Logout" : "LogIn"}
-      </button>
+      </button> */}
     </div>
   );
 };

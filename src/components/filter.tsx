@@ -4,12 +4,12 @@ import styles from "../styles/filter.module.scss";
 export default function filter() {
   return (
     <div className={styles.wrapper}>
-      <button>Woman</button>
-      <button>Men</button>
-      <button>Sport</button>
-      <button>Shoes</button>
+      <button>Electronics</button>
+      <button>Computers</button>
+      <button>Audio</button>
+      <button>Monitors</button>
       <button>Accessories</button>
-      <button>Discount</button>
+      <button>Camera & Photo </button>
     </div>
   );
 }

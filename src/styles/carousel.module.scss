@@ -1,38 +1,56 @@
 .wrapper {
-  max-width: 60%;
+  display: block;
+  max-width: 50%;
+  min-height: 20rem;
   margin: 0 auto;
-  height: 30rem;
-  border: 1px solid red;
   margin-bottom: 15rem;
 }
-.carousel .carousel-indicators button {
+
+/* .carousel .carousel-indicators button {
   width: 20px;
   height: 20px;
   border-radius: 50%;
 }
 
-/* Right */
 .carousel .carousel-control-next-icon.changed {
   background-image: url("../../public/arrow-right-solid.svg");
 }
 
-/* Left */
 .carousel .carousel-control-prev-icon {
   background-image: url("../../public/arrow-right-solid.svg");
   rotate: 180deg;
+} */
+.react-multi-carousel-dot-list {
+  border: 10px solid yellow;
 }
 .img {
-  max-height: 30rem;
+  max-height: 20rem;
+  height: 10rem;
+  width: auto;
   max-width: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-
-.h3 {
-  border: 1px solid red;
+.productName {
+  font-size: 16px;
+  text-decoration: none;
+  outline: none;
   color: black;
-  font-size: 28px;
-  min-width: 15%;
-  max-width: 35%;
+}
+.productPrice {
+  text-align: center;
+  font-size: 18px;
+}
+
+.products {
+  width: auto;
+  max-width: 80%;
+  text-align: center;
+  transition: transform 0.2s; /* Animation */
+  &:hover {
+    transform: scale(
+      1.05
+    ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
 }
