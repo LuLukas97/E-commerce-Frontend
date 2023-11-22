@@ -1,9 +1,9 @@
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
-import Carousel from "../components/carousel";
-import Filter from "../components/filter";
-import Carousell from "../components/newCarousel";
-import ListProducts from "../components/listProducts";
+import Navbar from "../../components/navbar";
+import Footer from "../../components/footer";
+import Carousel from "../../components/carousel";
+import Filter from "../../components/filter";
+import Carousell from "../../components/newCarousel";
+import ListProducts from "../../components/listProducts";
 import { useRouter } from "next/router";
 
 // Dummy data for categories (to simulate fetching from backend)

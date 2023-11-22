@@ -6,25 +6,19 @@
   margin-bottom: 5rem;
 }
 
-.flexContainer {
-  display: grid;
-  /*   height: 100%; */
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(auto-fill, minmax(20rem, 1fr));
-  grid-column-gap: 5%;
-  grid-row-gap: 5%;
-}
-
 .img {
   max-height: 20rem;
   margin-top: 3rem;
   height: 10rem;
-  width: auto;
-  max-width: 100%;
+
   display: block;
   margin-left: auto;
   margin-right: auto;
   transition: transform 0.2s;
+  & > .productPrice {
+    border: 1px solid blue;
+    margin-bottom: 3rem;
+  }
 }
 .productName {
   font-size: 18px;
@@ -37,7 +31,6 @@
 .productPrice {
   text-align: center;
   font-size: 18px;
-  margin-top: 3rem;
   font-weight: 700;
 }
 .sellingList {
@@ -49,13 +42,15 @@
   font-size: 2.5rem;
   margin-bottom: 2.5rem;
 }
+
 .productContainer {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+
   position: relative;
   overflow: hidden;
   width: 18rem;
   min-height: 25rem;
-  max-height: 30rem;
+  max-height: 35rem;
 
   .products {
     width: 100%;
@@ -82,3 +77,5 @@
     opacity: 1;
   }
 }
+
+// TODO add viewport for mobile and laptops, remove carousell

@@ -5,12 +5,10 @@
   background-color: black;
 }
 
-/* Right */
 .carousel .carousel-control-next-icon.changed {
   background-image: url("../../public/arrow-right-solid.svg");
 }
 
-/* Left */
 .carousel .carousel-control-prev-icon {
   background-image: url("../../public/arrow-right-solid.svg");
   rotate: 180deg;

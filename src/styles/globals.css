@@ -108,9 +108,11 @@ a {
 }
  */
 
+.carousel-container {
+  padding: 25px;
+}
 html,
 body {
-  
   height: 100%;
   padding: 0;
   margin: 0;

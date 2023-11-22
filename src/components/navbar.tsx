@@ -22,7 +22,7 @@ const Home: NextPage = () => {
       <div className={styles.navbar__primary}>
         <div className={styles.icon}>
           <Image
-            src="location-dot-solid.svg"
+            src="/location-dot-solid.svg"
             width={24}
             height={24}
             alt="marker"
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
         </div>
         <div className={styles.icon}>
           <Image
-            src="circle-info-solid.svg"
+            src="/circle-info-solid.svg"
             width={24}
             height={24}
             alt="information"
@@ -41,12 +41,12 @@ const Home: NextPage = () => {
         </div>
         <div className={styles.item3}></div>
         <div className={styles.icon}>
-          <Image src="user-solid.svg" width={24} height={24} alt="user" />
+          <Image src="/user-solid.svg" width={24} height={24} alt="user" />
           <span className={styles.navbar__text}>Login</span>
         </div>
         <div className={styles.icon}>
           <Image
-            src="bag-shopping-solid.svg"
+            src="/bag-shopping-solid.svg"
             width={24}
             height={24}
             alt="information"
@@ -93,20 +93,4 @@ const Home: NextPage = () => {
   );
 };
 
-/* export const getServerSideProps = wrapper.getServerSideProps(
-  (store) =>
-    async ({ params }) => {
-      // we can set the initial state from here
-      await store.dispatch(setAuthState(false));
-
-      console.log("State on server", store.getState());
-
-      return {
-        props: {
-          authState: false,
-        },
-      };
-    }
-);
- */
 export default Home;

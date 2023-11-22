@@ -61,14 +61,22 @@ function newCarousel() {
       >
         {data.map((item, index) => (
           <div key={index}>
-            <div className={styles.products}>
-              <a href={item.id} className={styles.productName}>
-                <img className={styles.img} src={item.image} />
-                {/*  <h5>{item.id}</h5> */}
-                <span className={styles.productName}>{item.name} </span>
-                <p className={styles.productPrice}>${item.value.price}</p>
-                {/* Add more as needed */}
-              </a>
+            <div className={styles.productContainer}>
+              <div className={styles.products}>
+                <a href={item.id} className={styles.productName}>
+                  <img className={styles.img} src={item.image} />
+                  <h5 className={styles.hoverText}>
+                    <ul className={styles.sellingList}>
+                      <li> Hej</li>
+                      <li> Hej</li>
+                      <li> Hej</li>
+                    </ul>
+                  </h5>
+                  <h2 className={styles.productName}>{item.name} </h2>
+                  <h5> Product text </h5>
+                </a>
+              </div>
+              <p className={styles.productPrice}>${item.value.price}</p>
             </div>
           </div>
         ))}

@@ -3,20 +3,24 @@ import styles from "../styles/listProducts.module.scss";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-
+import slugify from "slugify";
 import axios from "axios";
+import Link from "next/link";
 
 function listProducts() {
+  const router = useRouter();
+  const { category } = router.query;
+  const [data, setData] = useState<any[]>([]);
+
   const capitalizeFirstLetter = (string: string): string => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
-  const router = useRouter();
-  const { category } = router.query;
   const capitalizedCategory: string = capitalizeFirstLetter(category as string);
-  const [data, setData] = useState<any[]>([]);
 
   async function getData() {
-    const url = "http://localhost:8080/products?category=" + category; // ?category=audio
+    const url =
+      process.env.NEXT_PUBLIC_BACKEND_URL + "/products?category=" + category; // ?category=audio
+    console.log(url);
     try {
       const response = await axios.get(url);
       setData(response.data);
@@ -25,8 +29,22 @@ function listProducts() {
     }
   }
 
+  /* const generateSlug = (productName: string): string => {
+    return slugify(productName, {
+      replacement: "-",
+      lower: true,
+      remove: /[*+~.()'"!:@]/g,
+    });
+  }; */
+
+  /* const updatedData = data.map((product: any) => ({
+    ...product,
+    slug: generateSlug(product.name),
+  })); */
+
   useEffect(() => {
     getData();
+    console.log(data, " DATA");
   }, []);
 
   return (
@@ -38,7 +56,10 @@ function listProducts() {
             <div key={index}>
               <div className={styles.productContainer}>
                 <div className={styles.products}>
-                  <a href={item.id} className={styles.productName}>
+                  <Link
+                    href={item.category + "/" + item.slug}
+                    className={styles.productName}
+                  >
                     <img className={styles.img} src={item.image} />
                     <h5 className={styles.hoverText}>
                       <ul className={styles.sellingList}>
@@ -49,7 +70,7 @@ function listProducts() {
                     </h5>
                     <h2 className={styles.productName}>{item.name} </h2>
                     <h5> Product text </h5>
-                  </a>
+                  </Link>
                 </div>
                 <p className={styles.productPrice}>${item.value.price}</p>
               </div>

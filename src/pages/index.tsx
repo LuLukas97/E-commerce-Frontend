@@ -6,17 +6,15 @@ import Carousel from "../components/carousel";
 /* import "../components/carousel.css"; */
 import Filter from "../components/filter";
 import Carousell from "../components/newCarousel";
-
+import AllProducts from "../components/allProducts";
 
 import "bootstrap/dist/css/bootstrap.css";
 const Home = () => {
-
-  
   return (
     <div>
       <Navbar />
-      {/* <Carousel /> */}
-      <Carousell />
+      {/* <Carousell /> */}
+      <AllProducts />
       <Filter />
       <Footer />
     </div>
