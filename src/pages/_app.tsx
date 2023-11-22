@@ -1,16 +1,21 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { wrapper } from "../redux/store/store";
-import { PersistGate } from "redux-persist/integration/react";
 import { useStore } from "react-redux";
 import "../styles/carousel.css";
+import { FC } from "react";
+import { Provider } from "jotai";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  const store: any = useStore();
+function App({ Component, pageProps }: AppProps) {
   return (
-    <PersistGate persistor={store.__persistor} loading={<div>Loading</div>}>
+    <Provider>
       <Component {...pageProps} />
-    </PersistGate>
+    </Provider>
   );
 }
-export default wrapper.withRedux(MyApp);
+
+export default App;
+
+/* export default function MyApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
+}
+ */

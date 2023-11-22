@@ -51,6 +51,12 @@
 .headerTitle {
   font-size: 32px;
   font-weight: 100;
+
+  & > a {
+    outline: none;
+    color: black;
+    text-decoration: none;
+  }
 }
 
 .navbar__menu {
@@ -68,7 +74,7 @@
   height: 100%;
   padding: 15px;
   gap: 5px;
-  margin-bottom: 5%;
+  margin-bottom: 2.5rem;
 
   & > button {
     border: 1px solid green;
