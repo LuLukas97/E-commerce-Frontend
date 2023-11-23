@@ -1,6 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import styles from "../styles/carousel.module.scss";
+import styles from "../styles/components/carousel.module.scss";
 import { React, useState, useEffect } from "react";
 import axios from "axios";
 

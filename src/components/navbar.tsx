@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/navbar.module.scss";
+import styles from "../styles/components/navbar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import {
@@ -67,7 +67,7 @@ const Home: NextPage = () => {
         ></input>
       </div>
       <p className={styles.freeShipping}>
-        * Free shipping in Europe with orders above 599,00kr
+        * Free shipping with orders above $20.00
       </p>
       <div className={styles.navbar__menu}>
         <span>

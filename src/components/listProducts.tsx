@@ -1,16 +1,19 @@
 import "react-multi-carousel/lib/styles.css";
-import styles from "../styles/listProducts.module.scss";
+import styles from "../styles/components/listProducts.module.scss";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import slugify from "slugify";
 import axios from "axios";
 import Link from "next/link";
+import SortBy from "./sortBy";
 
 function listProducts() {
   const router = useRouter();
   const { category } = router.query;
   const [data, setData] = useState<any[]>([]);
+
+  const [filterCriteria, setFilterCriteria] = useState("");
 
   const capitalizeFirstLetter = (string: string): string => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -20,7 +23,6 @@ function listProducts() {
   async function getData() {
     const url =
       process.env.NEXT_PUBLIC_BACKEND_URL + "/products?category=" + category; // ?category=audio
-    console.log(url);
     try {
       const response = await axios.get(url);
       setData(response.data);
@@ -29,28 +31,32 @@ function listProducts() {
     }
   }
 
-  /* const generateSlug = (productName: string): string => {
-    return slugify(productName, {
-      replacement: "-",
-      lower: true,
-      remove: /[*+~.()'"!:@]/g,
-    });
-  }; */
+  async function getDataWithFilter(filter: string) {
+    const url =
+      process.env.NEXT_PUBLIC_BACKEND_URL +
+      "/products/search?category=" +
+      category +
+      "&filterType=" +
+      filter;
+    try {
+      const response = await axios.get(url);
 
-  /* const updatedData = data.map((product: any) => ({
-    ...product,
-    slug: generateSlug(product.name),
-  })); */
+      setData(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
 
   useEffect(() => {
     getData();
-    console.log(data, " DATA");
+    //console.log(data, " DATA");
   }, []);
 
   return (
     <div>
       <h1 className={styles.category}> {capitalizedCategory} </h1>
       <div className={styles.container}>
+        <SortBy category={category as string} onFilter={getDataWithFilter} />
         <div className={styles.flexContainer}>
           {data.map((item, index) => (
             <div key={index}>
@@ -61,18 +67,19 @@ function listProducts() {
                     className={styles.productName}
                   >
                     <img className={styles.img} src={item.image} />
-                    <h5 className={styles.hoverText}>
-                      <ul className={styles.sellingList}>
-                        <li> Hej</li>
-                        <li> Hej</li>
-                        <li> Hej</li>
-                      </ul>
-                    </h5>
+
                     <h2 className={styles.productName}>{item.name} </h2>
-                    <h5> Product text </h5>
+                    <ul className={styles.sellingList}>
+                      <li> {item.bulletedList.list1} </li>
+                      <li> {item.bulletedList.list2} </li>
+                      <li> {item.bulletedList.list3} </li>
+                    </ul>
                   </Link>
                 </div>
-                <p className={styles.productPrice}>${item.value.price}</p>
+                <span className={styles.productPrice}>${item.value.price}</span>
+                <span className={styles.productPrice__old}>
+                  ${item.value.price}
+                </span>
               </div>
             </div>
           ))}

@@ -1,0 +1,122 @@
+.container {
+  margin: 0 auto;
+  min-width: 250px;
+  width: 50%;
+  /*   border: 1px solid red; */
+  height: auto;
+  margin-bottom: 5rem;
+}
+
+.flexContainer {
+  /*   display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-column-gap: 5%;
+  grid-row-gap: 5%; */
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+
+  /* gap: 5px; */
+
+  //gap: 10%;
+  max-width: 100rem; /* Set maximum width for the container */
+}
+
+.img {
+  max-height: 10rem;
+  width: auto;
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.2s;
+}
+.productName {
+  font-size: 16px;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  text-align: center;
+  margin-top: clamp(10px, 2rem, 25px);
+}
+.productPrice {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 3rem;
+  font-weight: 700;
+  color: #de7311;
+
+  &__old {
+    margin-left: 10px;
+    font-size: 18px;
+    color: grey;
+    text-decoration: line-through;
+  }
+}
+
+.sellingList {
+  text-align: left;
+  list-style: none; /* Remove default bullets */
+  color: black;
+  float: left;
+  margin-top: 20%;
+  //border: 1px solid red;
+  max-width: 16rem;
+  line-height: 1.5rem;
+
+  & > li::before {
+    content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: grey; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -2em; /* Also needed for space (tweak if needed) */
+  }
+}
+.category {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 2.5rem;
+  font-weight: 100;
+}
+
+.productContainer {
+  //border: 1px solid purple;
+  /* margin-top: 10%; */
+  /*   position: relative;
+  overflow: hidden; */
+  min-width: 15rem;
+  min-height: 30rem;
+
+  /* .products {
+    width: 100%;
+
+    height: auto;
+    display: block;
+    transition: transform 0.3s, opacity 0.3s;
+
+    &:hover {
+      transform: scale(0.9) translateY(-25%);
+    }
+  } */
+
+  /* .hoverText {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  &:hover .hoverText {
+    opacity: 1;
+  } */
+}

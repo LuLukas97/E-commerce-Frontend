@@ -1,6 +1,6 @@
 import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
-import styles from "../styles/allProducts.module.scss";
+import styles from "../styles/components/allProducts.module.scss";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
