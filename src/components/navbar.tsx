@@ -2,13 +2,7 @@ import React from "react";
 import styles from "../styles/components/navbar.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
-import {
-  faBagShopping,
-  faUser,
-  faLocationDot,
-  faCircleInfo,
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
+
 import { useDispatch, useSelector } from "react-redux";
 import type { NextPage } from "next";
 import { useAtom } from "jotai";
@@ -56,10 +50,10 @@ const Home: NextPage = () => {
       </div>
       <div className={styles.navbar}>
         <h1 className={styles.headerTitle}>
-          <a href="/">FitFly</a>
+          {/*  <a href="/">FitFly</a> */}
+          <Image src="/logo.png" width={214} height={150} alt="logo" />
         </h1>
 
-        {/* <FontAwesomeIcon icon={faMagnifyingGlass} /> */}
         <input
           className={styles.navbar__search}
           type="text"

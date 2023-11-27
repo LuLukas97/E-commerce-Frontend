@@ -7,6 +7,7 @@ import slugify from "slugify";
 import axios from "axios";
 import Link from "next/link";
 import SortBy from "./sortBy";
+import Image from "next/image";
 
 function listProducts() {
   const router = useRouter();
@@ -49,9 +50,12 @@ function listProducts() {
 
   useEffect(() => {
     getData();
-    //console.log(data, " DATA");
+    console.log(data, " DATSAS");
   }, []);
 
+  if (!data) {
+    return <div>Loading...</div>; // TODO: SSR
+  }
   return (
     <div>
       <h1 className={styles.category}> {capitalizedCategory} </h1>
@@ -66,9 +70,42 @@ function listProducts() {
                     href={item.category + "/" + item.slug}
                     className={styles.productName}
                   >
-                    <img className={styles.img} src={item.image} />
+                    <div className={styles.img}>
+                      <Image
+                        src={item.images.img1}
+                        width={200}
+                        height={200}
+                        //fill={true}
 
+                        style={{ height: "100%", width: "100%" }}
+                        className={styles.img__image}
+                        alt="product image"
+                      />
+                    </div>
                     <h2 className={styles.productName}>{item.name} </h2>
+                    <div>
+                      <p className={styles.ratings}>
+                        {" "}
+                        {/* TODO: add better styling */}
+                        {item.totalRating}/5{" "}
+                        {Array.from({ length: item.totalRating }).map(
+                          (_, index) => (
+                            <Image
+                              src="/star-test.svg"
+                              width={18}
+                              height={18}
+                              alt="information"
+                            />
+                          )
+                        )}
+                      </p>
+                      <span className={styles.productPrice}>
+                        ${item.value.price}
+                      </span>
+                      <span className={styles.productPrice__old}>
+                        ${item.value.price}
+                      </span>
+                    </div>
                     <ul className={styles.sellingList}>
                       <li> {item.bulletedList.list1} </li>
                       <li> {item.bulletedList.list2} </li>
@@ -76,10 +113,6 @@ function listProducts() {
                     </ul>
                   </Link>
                 </div>
-                <span className={styles.productPrice}>${item.value.price}</span>
-                <span className={styles.productPrice__old}>
-                  ${item.value.price}
-                </span>
               </div>
             </div>
           ))}

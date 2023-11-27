@@ -1,0 +1,139 @@
+.productContainer {
+  display: flex;
+
+  justify-content: center;
+  align-items: stretch;
+  /* flex-flow: row wrap; */
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  height: 100%;
+  padding: 15px;
+  gap: 10rem;
+}
+.product {
+  display: flex;
+
+  justify-content: flex-start;
+  align-items: stretch;
+  /* flex-flow: column wrap; */
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 40%;
+
+  height: 100%;
+  padding: 15px;
+  gap: 5px;
+  border: 1px solid red;
+}
+.bulletedList {
+  width: 100%;
+}
+
+.productInfo {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+  /* flex-flow: row wrap; */
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  height: 100%;
+  gap: 5px;
+}
+.productPrice {
+  min-width: 8rem;
+  color: #de7311;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #fef0ef;
+  border: 1px solid red;
+
+  &__old {
+    margin-left: 10px;
+    font-size: 18px;
+    color: grey;
+    text-decoration: line-through;
+  }
+}
+.productTitle {
+  font-weight: 100;
+  width: 100%;
+  border: 1px solid red;
+}
+.productImage {
+  /*
+  height: 12rem; */
+  text-align: center;
+  border-radius: 2%;
+  &__preview {
+    margin-top: 1.5rem;
+    display: inline-flex; /* Use inline-flex to size container based on content */
+    align-items: flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align content at the most left */
+    gap: 5px;
+    cursor: pointer;
+  }
+}
+.img {
+  min-width: 12rem;
+  max-width: 25rem;
+  height: 25rem;
+  object-fit: contain;
+}
+.productDescription {
+  background-color: #f5f5f5;
+  border-radius: 1%;
+  min-width: 12rem;
+  max-width: 25rem;
+  padding: 15px;
+  border: 1px solid red;
+}
+
+.linebreak {
+  margin-top: 2.5rem;
+  height: 41px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  /* flex-flow: row wrap; */
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  //background-color: #f5f5f5; // TODO: change back to original? Try color below out and possibly change back
+  background-color: #fef0ef;
+  padding: 15px;
+  margin-bottom: 2.5rem;
+}
+
+.rating {
+  display: flex;
+
+  justify-content: space-around;
+  align-items: baseline;
+  /* flex-flow: row wrap; */
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  height: 100%;
+  padding: 15px;
+  gap: 5px;
+}
+.ratings {
+  flex-grow: 1;
+}
+.stars {
+  display: flex;
+
+  justify-content: space-around;
+  align-items: flex-start;
+  /* flex-flow: row wrap; */
+  flex-direction: row;
+  flex-wrap: wrap;
+}

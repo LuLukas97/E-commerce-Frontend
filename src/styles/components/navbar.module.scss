@@ -24,7 +24,6 @@
 
   flex-wrap: wrap;
 
-  padding: 15px;
   gap: 2%;
   & > h1 {
     margin: 0;
@@ -49,9 +48,6 @@
 }
 
 .headerTitle {
-  font-size: 32px;
-  font-weight: 100;
-
   & > a {
     outline: none;
     color: black;
