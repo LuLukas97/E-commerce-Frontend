@@ -24,7 +24,8 @@
   height: 100%;
   padding: 15px;
   gap: 5px;
-  border: 1px solid red;
+  border: 1px solid #d9d9d9;
+  border-radius: 1%;
 }
 .bulletedList {
   width: 100%;
@@ -49,7 +50,6 @@
   font-size: 20px;
   font-weight: 700;
   background-color: #fef0ef;
-  border: 1px solid red;
 
   &__old {
     margin-left: 10px;
@@ -61,7 +61,6 @@
 .productTitle {
   font-weight: 100;
   width: 100%;
-  border: 1px solid red;
 }
 .productImage {
   /*
@@ -91,7 +90,6 @@
   min-width: 12rem;
   max-width: 25rem;
   padding: 15px;
-  border: 1px solid red;
 }
 
 .linebreak {

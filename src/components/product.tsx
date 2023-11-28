@@ -24,21 +24,37 @@ interface ProductData {
     img3: string;
     img4: string;
   };
+  category: string;
   name: string;
   totalRating: number;
 }
+interface ReviewData {
+  // DATA
+  id: string;
+  name: string;
+  comment: string;
+  rating: number;
+  date: Date;
+  product: string;
+  pros: string;
+  cons: string;
+}
 interface ProductProps {
-  productData: ProductData | null;
+  productData: ProductData;
+  reviewData: ReviewData | null;
 }
 
-function Product({ productData }: ProductProps) {
+function Product({ productData, reviewData }: ProductProps) {
   const [data, setData] = useState<ProductData[]>([]);
+  const [reviews, setReviews] = useState<ProductData[]>([]);
+
   const [productImg, setProductImg] = useState<string>();
   const [ratings, setRatings] = useState<any[]>([]);
   const [activeImageKey, setActiveImageKey] = useState<string | null>(null);
 
   useEffect(() => {
     setData(productData);
+    setReviews(reviewData);
     setProductImg(productData?.images.img1);
     setRatings(productData?.totalRating);
   }, []);
@@ -71,7 +87,14 @@ function Product({ productData }: ProductProps) {
     },
   };
 
-  if (!productData || !data || !productData.images || !productImg || !ratings) {
+  if (
+    !productData ||
+    !reviews ||
+    !data ||
+    !productData.images ||
+    !productImg ||
+    !ratings
+  ) {
     return <div>Loading...</div>; // TODO: SSR
   }
   return (
@@ -152,7 +175,7 @@ function Product({ productData }: ProductProps) {
         </div>
       </div>
       <div className={styles.linebreak}></div>
-      <Reviews productData={productData} />
+      <Reviews productData={productData} reviewData={reviews} />
     </div>
   );
 }

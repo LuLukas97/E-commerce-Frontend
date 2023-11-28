@@ -12,42 +12,84 @@
   gap: 10rem;
 }
 
-.flex-container > div {
-  background: #ffecb3;
-  border: 3px solid #ffcc80;
-  border-radius: 5px;
-  padding: 8px;
-}
-
-.item2 {
-  /* flex:1 1 auto; */
-  flex-grow: 1;
-}
-
-.item3 {
-  /* flex:1 1 auto; */
-  flex-grow: 1;
-}
 .relatedProducts {
   border: 1px solid red;
 }
 
 .reviewsContainer {
-  border: 1px solid red;
-  height: 50vh;
-  min-width: 12rem;
-  max-width: 40rem;
+  min-width: 300px;
+  max-width: 500px;
+  /* min-width: 12rem;
+  max-width: 40rem; */
 
+  display: flex;
+
+  align-items: flex-start;
+  /* flex-flow: row wrap; */
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+
+  border: 1px solid #d9d9d9;
+  border-radius: 1%;
+  padding: 15px;
+  gap: 10px;
+}
+
+.dateAndRatingContainer {
+  width: 100%;
   display: flex;
 
   justify-content: space-between;
   align-items: flex-start;
-  /* flex-flow: row wrap; */
-  flex-direction: row;
+  /* flex-flow: wrap; */
   flex-wrap: wrap;
+}
+.commentSection {
+  display: flex;
+  align-items: center;
+}
 
-  background-color: #bbdefb;
-  height: 100%;
-  padding: 15px;
-  gap: 5px;
+.username {
+  font-size: 20px;
+  font-weight: 700;
+}
+.speechBubble {
+  align-items: unset;
+  margin-bottom: 25px;
+  margin-left: 5px;
+}
+.testAlign {
+  display: flex;
+  align-items: center;
+}
+.comment {
+  margin-left: 5%;
+  min-width: 20%;
+  max-width: 70%;
+  margin-top: -10px;
+  margin-bottom: 5%;
+  font-size: 17px;
+}
+
+.prosCons {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+.pros {
+  margin-left: 5px;
+}
+.cons {
+  margin-left: 5px;
+}
+.date {
+  font-size: 12px;
+}
+.stars {
+  max-width: 8rem;
+}
+.bold {
+  font-weight: 700;
 }

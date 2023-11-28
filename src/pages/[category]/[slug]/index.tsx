@@ -28,8 +28,18 @@ interface ProductData {
   totalRating: number;
 }
 
+interface ReviewData {
+  // DATA
+  id: string;
+  name: string;
+  comment: string;
+  date: Date;
+  product: string;
+}
+
 interface SlugPageProps {
   productData: ProductData | null;
+  reviewData: ReviewData | null;
 }
 
 export const getServerSideProps: GetServerSideProps<SlugPageProps> = async (
@@ -39,13 +49,18 @@ export const getServerSideProps: GetServerSideProps<SlugPageProps> = async (
   const { slug } = params as { slug: string }; // Assuming slug is a string
 
   try {
-    const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/products/search/${slug}`;
-    const response = await axios.get<ProductData>(url);
+    const productSlug = `${process.env.NEXT_PUBLIC_BACKEND_URL}/products/search/${slug}`;
+    const response = await axios.get<ProductData>(productSlug);
     const productData: ProductData = response.data;
+
+    const reviews = `${process.env.NEXT_PUBLIC_BACKEND_URL}/reviews/search/${productData.id}`;
+    const reviewResponse = await axios.get<ReviewData>(reviews);
+    const reviewData: ReviewData = reviewResponse.data;
 
     return {
       props: {
         productData,
+        reviewData,
       },
     };
   } catch (error) {
@@ -53,19 +68,20 @@ export const getServerSideProps: GetServerSideProps<SlugPageProps> = async (
     return {
       props: {
         productData: null,
+        reviewData: null,
       },
     };
   }
 };
 
-const SlugPage: React.FC<SlugPageProps> = ({ productData }) => {
+const SlugPage: React.FC<SlugPageProps> = ({ productData, reviewData }) => {
   const router = useRouter();
   const { slug } = router.query as { slug: string }; // Assuming slug is a string
 
   return (
     <div>
       <Navbar />
-      <Product productData={productData} />
+      <Product productData={productData} reviewData={reviewData} />
       <Footer />
     </div>
   );

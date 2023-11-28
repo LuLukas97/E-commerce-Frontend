@@ -3,7 +3,6 @@ import styles from "../styles/components/listProducts.module.scss";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import slugify from "slugify";
 import axios from "axios";
 import Link from "next/link";
 import SortBy from "./sortBy";
