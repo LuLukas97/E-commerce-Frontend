@@ -6,7 +6,6 @@ import ListProducts from "../../components/listProducts";
 
 import { useRouter } from "next/router";
 
-// Dummy data for categories (to simulate fetching from backend)
 const categoriesData = {
   electronics: { name: "Electronics", description: "Electronics category" },
   computers: { name: "Computers", description: "Computers category" },

@@ -66,7 +66,7 @@ const Home: NextPage = () => {
         ></input>
       </div>
       <p className={styles.freeShipping}>
-        * Free shipping with orders above $20.00
+        * Free shipping with orders above $50.00
       </p>
       <div className={styles.navbar__menu}>
         <span>
