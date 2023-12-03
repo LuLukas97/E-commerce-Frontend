@@ -1,9 +1,12 @@
+"use client";
 import { useRouter } from "next/router";
 import styles from "../styles/components/product.module.scss";
 import Image from "next/image";
 import React from "react";
 import Reviews from "./reviews";
 import { useState, useEffect } from "react";
+import { atom, useAtom } from "jotai";
+import { shoppingCart, shoppingCartItems } from "../store/store";
 
 interface ProductData {
   brand: string;
@@ -51,40 +54,31 @@ function Product({ productData, reviewData }: ProductProps) {
   const [productImg, setProductImg] = useState<string>();
   const [ratings, setRatings] = useState<any[]>([]);
   const [activeImageKey, setActiveImageKey] = useState<string | null>(null);
+  const [addToCart, setAddToCart] = useState<ProductData[]>([]);
+  const [addToCartText, setAddToCartText] = useState<string>("Add to cart");
+  const [cart, setCart] = useAtom(shoppingCart);
+  const [cartItems, setCartItems] = useAtom(shoppingCartItems);
 
   useEffect(() => {
     setData(productData);
     setReviews(reviewData);
     setProductImg(productData?.images.img1);
     setRatings(productData?.totalRating);
+    /* let value;
+    value = localStorage.getItem("checkoutItems") || ""; */
+    /* console.log(value, " value"); */
   }, []);
 
   function handleClick(imageKey: string) {
     setProductImg(productData?.images[imageKey]);
     setActiveImageKey(imageKey);
   }
+  const handleAddToCart = (item) => {
+    setAddToCartText("✓");
+    setCart((c) => c + 1);
+    setCartItems([...cartItems, [item]]); // Add a new array for the new item
+    //setCartItems(item);
 
-  const router = useRouter();
-  const { slug } = router.query;
-
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 3,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 3,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
   };
 
   if (
@@ -95,7 +89,7 @@ function Product({ productData, reviewData }: ProductProps) {
     !productImg ||
     !ratings
   ) {
-    return <div>Loading...</div>; // TODO: SSR
+    return <div>Loading...</div>; // TODO: SSR + handle if product doesnt have a review, currently doesn't load site at all with no reviews
   }
   return (
     <div>
@@ -171,6 +165,14 @@ function Product({ productData, reviewData }: ProductProps) {
                 </div>
               )
             )}
+          </div>
+          <div>
+            <button
+              className={styles.btn}
+              onClick={() => handleAddToCart(productData)}
+            >
+              {addToCartText}
+            </button>
           </div>
         </div>
       </div>

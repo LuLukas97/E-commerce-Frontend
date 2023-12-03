@@ -45,10 +45,10 @@ interface SlugPageProps {
 export const getServerSideProps: GetServerSideProps<SlugPageProps> = async (
   context
 ) => {
-  const { params } = context;
-  const { slug } = params as { slug: string }; // Assuming slug is a string
-
   try {
+    const { params } = context;
+    const { slug } = params as { slug: string }; // Assuming slug is a string
+
     const productSlug = `${process.env.NEXT_PUBLIC_BACKEND_URL}/products/search/${slug}`;
     const response = await axios.get<ProductData>(productSlug);
     const productData: ProductData = response.data;

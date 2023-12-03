@@ -135,3 +135,29 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.btn {
+  margin-top: 5%;
+
+  font-family: "Inter", sans-serif;
+
+  color: white;
+  font-weight: 300;
+  transition: box-shadow 0.3s;
+
+  background-color: rgb(94, 159, 26);
+  font-size: 22px;
+  min-width: 15rem;
+  min-height: 3rem;
+  padding: 5px 15px;
+  border-radius: 100vw;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.4px;
+  filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 1px 2px)
+    drop-shadow(rgba(0, 0, 0, 0.05) 0px 2px 2px);
+}
+.btn:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.4);
+}

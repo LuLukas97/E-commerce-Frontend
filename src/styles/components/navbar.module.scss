@@ -44,7 +44,13 @@
   }
 }
 .icon {
+  outline: none;
+  text-decoration: none;
   cursor: pointer;
+}
+.icon:visited {
+  outline: none;
+  text-decoration: none;
 }
 
 .headerTitle {

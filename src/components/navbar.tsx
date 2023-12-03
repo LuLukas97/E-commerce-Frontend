@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import type { NextPage } from "next";
 import { useAtom } from "jotai";
 import { shoppingCart } from "../store/store";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const [cart, setCart] = useAtom(shoppingCart);
@@ -38,20 +39,24 @@ const Home: NextPage = () => {
           <Image src="/user-solid.svg" width={24} height={24} alt="user" />
           <span className={styles.navbar__text}>Login</span>
         </div>
-        <div className={styles.icon}>
-          <Image
-            src="/bag-shopping-solid.svg"
-            width={24}
-            height={24}
-            alt="information"
-          />
-          <span className={styles.navbar__text}>Shopping cart ({cart})</span>
-        </div>
+        <Link href="/checkout">
+          <div className={styles.icon}>
+            <Image
+              src="/bag-shopping-solid.svg"
+              width={24}
+              height={24}
+              alt="information"
+            />
+            <span className={styles.navbar__text}>Shopping cart ({cart})</span>
+          </div>
+        </Link>
       </div>
       <div className={styles.navbar}>
         <h1 className={styles.headerTitle}>
           {/*  <a href="/">FitFly</a> */}
-          <Image src="/logo.png" width={214} height={150} alt="logo" />
+          <Link href="/">
+            <Image src="/logo.png" width={214} height={150} alt="logo" />
+          </Link>
         </h1>
 
         <input
