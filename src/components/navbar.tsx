@@ -8,6 +8,7 @@ import type { NextPage } from "next";
 import { useAtom } from "jotai";
 import { shoppingCart } from "../store/store";
 import Link from "next/link";
+import Login from "./Login";
 
 const Home: NextPage = () => {
   const [cart, setCart] = useAtom(shoppingCart);
@@ -36,8 +37,9 @@ const Home: NextPage = () => {
         </div>
         <div className={styles.item3}></div>
         <div className={styles.icon}>
-          <Image src="/user-solid.svg" width={24} height={24} alt="user" />
-          <span className={styles.navbar__text}>Login</span>
+          {/* <Image src="/user-solid.svg" width={24} height={24} alt="user" /> */}
+          {/* <span className={styles.navbar__text}>Login</span> */}
+          <Login />
         </div>
         <Link href="/checkout">
           <div className={styles.icon}>

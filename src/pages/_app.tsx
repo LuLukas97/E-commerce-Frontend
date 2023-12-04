@@ -4,12 +4,16 @@ import { useStore } from "react-redux";
 import "../styles/carousel.css";
 import { FC } from "react";
 import { Provider } from "jotai";
+import { NextUIProvider } from "@nextui-org/react";
+import * as React from "react";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <Provider>
-      <Component {...pageProps} />
-    </Provider>
+    <NextUIProvider>
+      <Provider>
+        <Component {...pageProps} />
+      </Provider>
+    </NextUIProvider>
   );
 }
 

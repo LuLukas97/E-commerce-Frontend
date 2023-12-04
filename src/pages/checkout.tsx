@@ -7,13 +7,16 @@ import { useState, useEffect } from "react";
 import styles from "../styles/components/checkout.module.scss";
 import Image from "next/image";
 import { atomWithStorage, RESET } from "jotai/utils";
+import Link from "next/link";
 
-export default function checkout() {
+export default function Checkout() {
   const [cartItems, setCartItems] = useAtom(shoppingCartItems);
+  const [shippingCost, setShippingCost] = useState<any>(""); // Free or $5.99
   const [freeShipping, setFreeShipping] = useState<String>("");
   const [totalPrice, setTotalPrice] = useState<number>();
   const [cart, setCart] = useAtom(shoppingCart);
   const [newPrice, setNewPrice] = useState<number>();
+  const [price, setPrice] = useState<number>();
 
   useEffect(() => {
     let value = [];
@@ -51,23 +54,33 @@ export default function checkout() {
     setTotalPrice(totalPrice.toFixed(2)); // Set the total price as a formatted string
 
     if (totalPrice < priceForFreeShipping) {
+      // om price for free shipping är lägre än total price (shipping cost)
       let priceUntilFreeShipping = priceForFreeShipping - totalPrice;
+
+      setPrice(totalPrice.toFixed(2));
+      totalPrice = totalPrice + 5.99;
+      setTotalPrice(totalPrice);
+
+      setShippingCost("$5.99");
       setFreeShipping(
         `You've got $${priceUntilFreeShipping.toFixed(
           2
         )} left until free shipping!`
       );
     } else {
+      setPrice(totalPrice.toFixed(2));
+      setShippingCost("Free!");
       setFreeShipping("You've got free shipping!");
     }
   };
 
   const removeProduct = (itemID) => {
-    console.log(itemID, " FUNCTION");
+    console.log(itemID, " ----- TO REMOVE");
     const updatedArrays = cartItems.filter((arr) => arr[0].id !== itemID);
-    setCartItems(updatedArrays);
+    console.log(updatedArrays, " UPDATED ARRAYS ");
+    /*  setCartItems(updatedArrays);
 
-    setCart((c) => c - 1);
+    setCart((c) => c - 1); */
     console.log(cartItems, " AFTER");
   };
 
@@ -85,39 +98,52 @@ export default function checkout() {
         {/* Below here is summary / checkout left side */}
         <div className={styles.checkout__productContainer}>
           {cartItems.map((item, index) => {
-            console.log(item[0], " ITEM");
+            console.log(item, " ITEM");
 
             return (
               <>
                 <div className={styles.checkout__productPicture} key={index}>
-                  <div>
-                    <Image
-                      className={styles.productImage}
-                      src={item[0].images.img1}
-                      width={124}
-                      height={124}
-                      alt="preview picture product"
-                    />
+                  <div className={styles.product}>
+                    {/* <div> */}
+                    <Link href={item.category + "/" + item.slug}>
+                      <Image
+                        className={styles.productImage}
+                        src={item.images.img1}
+                        width={124}
+                        height={124}
+                        alt="preview picture product"
+                      />
+                    </Link>
+                    {/*  </div> */}
                   </div>
                   <div className={styles.checkout__productInfo}>
                     {/* Product info */}
-                    <h4> {item[0].name} </h4>
-                    <h4>
+                    {/*                     <p className={styles.product__title}> {item[0].name} </p>
+                    <ul>
+                      <li>- {item[0].bulletedList.list1}</li>
+                      <li>- {item[0].bulletedList.list2}</li>
+                      <li>- {item[0].bulletedList.list3}</li>
+                    </ul>
+                    <p className={styles.product__price}>
                       $
                       {item[0].value.status
                         ? newPrice?.toFixed(2)
-                        : item[0].value.price}
-                      {/* TODO: Round up to nearest number more consistently */}
-                    </h4>
-                    {/* <h4> ${item[0].value.price}</h4> */}
+                        : item[0].value.price} */}
+                    {/* TODO: Round up to nearest number more consistently */}
+                    {/*                     </p> */}
                   </div>
-                  <div>
-                    <h2
+                  <div className={styles.removeItemContainer}>
+                    {/*                     <h2
                       onClick={() => removeProduct(item[0].id)}
                       className={styles.removeProduct}
                     >
                       X
-                    </h2>
+                    </h2> */}
+                    <div className={styles.addDecreamentCounter}>
+                      <div>- </div>
+                      <div>1</div>
+                      <div> +</div>
+                    </div>
                   </div>
                 </div>
               </>
@@ -126,7 +152,7 @@ export default function checkout() {
         </div>
         {/* Below here is login / checkout right side */}
         <div className={styles.payment}>
-          {/* <span>{freeShipping}</span> */}
+          <span>{freeShipping}</span>
           {/* TODO: replace with state and see if free shipping or not */}
           <div className={styles.payment__container}>
             <div className={styles.btnCenter}>
@@ -135,14 +161,14 @@ export default function checkout() {
               </button>
             </div>
             <div className={styles.payment__price}>
-              <p>Price: ${totalPrice} </p>
+              <p>Price: ${price} </p>
               {/* TODO: Calculate new totalPrice when products have discounts */}
 
-              <p>Shipping: {freeShipping}</p>
+              <p>Shipping: {shippingCost}</p>
             </div>
             <p className={styles.line}> </p>
             <div className={styles.payment__price}>
-              <p>Total: {totalPrice} </p>
+              <p>Total: ${totalPrice} </p>
             </div>
 
             <div className={styles.btnCenter}>

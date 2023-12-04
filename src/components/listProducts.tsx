@@ -76,15 +76,14 @@ function listProducts() {
                         height={200}
                         //fill={true}
 
-                        style={{ height: "100%", width: "100%" }}
-                        className={styles.img__image}
+                        /*                         style={{ height: "100%", width: "100%" }}
+                         */ className={styles.img__image}
                         alt="product image"
                       />
                     </div>
                     <h2 className={styles.productName}>{item.name} </h2>
                     <div>
                       <p className={styles.ratings}>
-                        {" "}
                         {/* TODO: add better styling */}
                         {item.totalRating}/5{" "}
                         {Array.from({ length: item.totalRating }).map(

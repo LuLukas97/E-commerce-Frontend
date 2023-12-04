@@ -1,4 +1,3 @@
-"use client";
 import { useRouter } from "next/router";
 import styles from "../styles/components/product.module.scss";
 import Image from "next/image";
@@ -73,12 +72,12 @@ function Product({ productData, reviewData }: ProductProps) {
     setProductImg(productData?.images[imageKey]);
     setActiveImageKey(imageKey);
   }
-  const handleAddToCart = (item) => {
+
+  const handleAddToCart = (newItem) => {
     setAddToCartText("✓");
     setCart((c) => c + 1);
-    setCartItems([...cartItems, [item]]); // Add a new array for the new item
-    //setCartItems(item);
 
+    setCartItems([...cartItems, [newItem]]); // Add a new array for the new item
   };
 
   if (
